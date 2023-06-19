@@ -107,7 +107,7 @@
 	</distributionManagement>
 	
 	<build>
-		<finalName>Tesla</finalName>
+		<finalName>josh_web_app</finalName>
 		
 		<plugins>
 			<plugin>
