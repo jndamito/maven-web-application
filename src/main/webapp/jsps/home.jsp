@@ -11,7 +11,7 @@
 <body>
 <h1 align="center">Welcome to JN Tech Consulting, your 247 IT Solution Provider</h1>
 <h1 align="center">We are developing and supporting quality Software Solutions to millions of clients globally.
-	           We are raising millionaires in IT automation.
+	           We are raising millionaires in IT automation all around the world.
 	We offer Training for DevOps with Linux and Cloud equipping IT Engineers for best performance.
 	Class33 will start on Saturday July 15, 2023. Do you want to join? </h1>
 <hr>
