@@ -6,7 +6,7 @@
 	<artifactId>maven-web-application</artifactId>
 	<packaging>war</packaging>
 	
-	<version>0.0.2</version> 
+	<version>0.0.4-SNAPSHOT</version> 
 	
 	<name>maven-web-application</name>
 
@@ -95,13 +95,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url>http://52.73.181.101:8081/jnconsulting/repository/tdbank-releases/</url>
+	      <url>http://54.205.238.54:8081/jnconsulting/repository/tdbank-releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url>http://52.73.181.101:8081/jnconsulting/repository/tdbank-snapshot/</url>
+	      <url>http://54.205.238.54:8081/jnconsulting/repository/tdbank-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
