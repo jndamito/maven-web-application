@@ -1,0 +1,34 @@
+node {
+	def mavenHome = tool name: 'maven3.9.2'
+	stage('1.GetCode'){
+		git "https://github.com/jndamito/maven-web-application.git"
+	}
+	stage('2.Build'){
+		sh "${mavenHome}/bin/mvn clean package"
+	}
+	stage('3.CodeQualityAnalysis'){
+		sh "${mavenHome}/bin/mvn sonar:sonar"
+	}
+	stage('4.UploadArtifacts'){
+		sh "${mavenHome}/bin/mvn deploy"
+	}
+	stage('5.DeployToUAT'){
+	deploy adapters: [tomcat9(credentialsId: 'Tomcat-credentials', path: '', url: 'http://54.242.253.111:8177/')], contextPath: null, war: 'target/*war'
+	}
+	stage('6.Approval'){
+		sh "echo 'Application ready for deployment, please review and approve' "
+		timeout(time:5, unit:'HOURS') {
+		input message: 'Application ready for deployment, we need your approval to proceed'
+		}
+	}
+	stage('7.Production'){
+	 deploy adapters: [tomcat9(credentialsId: 'Tomcat-credentials', path: '', url: 'http://54.242.253.111:8177/')], contextPath: null, war: 'target/*war'   
+	}
+	stage('8.Notifications'){
+	   emailext body: '''Hello Team, 
+
+Please check the most recent build.
+
+JN Tech Consulting''', recipientProviders: [developers(), buildUser()], subject: 'Build status', to: 'info@jnconsulting.cc'
+}
+}
