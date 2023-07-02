@@ -13,7 +13,7 @@ node {
 		sh "${mavenHome}/bin/mvn deploy"
 	}
 	stage('5.DeployToUAT'){
-	deploy adapters: [tomcat9(credentialsId: 'Tomcat-credentials', path: '', url: 'http://18.232.139.125:8177/')], contextPath: null, war: 'target/*war'
+	deploy adapters: [tomcat9(credentialsId: 'Tomcat-credentials', path: '', url: 'http://54.242.253.111:8177/')], contextPath: null, war: 'target/*war'
 	}
 	stage('6.Approval'){
 		sh "echo 'Application ready for deployment, please review and approve' "
@@ -22,7 +22,7 @@ node {
 		}
 	}
 	stage('7.Production'){
-	 deploy adapters: [tomcat9(credentialsId: 'Tomcat-credentials', path: '', url: 'http://18.232.139.125:8177/')], contextPath: null, war: 'target/*war'   
+	 deploy adapters: [tomcat9(credentialsId: 'Tomcat-credentials', path: '', url: 'http://54.242.253.111:8177/')], contextPath: null, war: 'target/*war'   
 	}
 	stage('8.Notifications'){
 	   emailext body: '''Hello Team, 
